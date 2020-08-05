@@ -1,7 +1,7 @@
 galaxy_info:
   author: Jake Howard
   description: Install reflector to automatically update pacman mirrors
-  min_ansible_version: 2.9
+  min_ansible_version: 2.4
 
   platforms:
     - name: Archlinux
