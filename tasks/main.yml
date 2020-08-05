@@ -1,0 +1,10 @@
+- name: Install Reflector
+  package:
+    name: reflector
+  become: true
+
+- name: Enable reflector
+  cron:
+    name: reflector
+    special_time: daily
+    job: reflector --verbose --sort rate -a 1 -p https --threads {{ ansible_facts.processor_vcpus }} --save /etc/pacman.d/mirrorlist
