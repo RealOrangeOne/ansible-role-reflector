@@ -1,0 +1,18 @@
+language: python
+
+install:
+  - pip install yamllint ansible-lint
+
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-reflector realorangeone.reflector
+  - cd realorangeone.reflector
+
+script:
+  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+  - yamllint . -c yamllint.yml
+  - ansible-lint
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
