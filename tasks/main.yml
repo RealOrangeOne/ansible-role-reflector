@@ -3,6 +3,11 @@
     name: reflector
   become: true
 
+- name: Install cron
+  package:
+    name: cronie
+  become: true
+
 - name: Enable reflector
   cron:
     name: reflector
