@@ -8,6 +8,12 @@
     name: cronie
   become: true
 
+- name: Start cron
+  service:
+    name: cronie
+    enabled: true
+  become: true
+
 - name: Enable reflector
   cron:
     name: reflector
